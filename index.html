@@ -5,29 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shuka — Modern Local Food Marketplace</title>
   <meta name="description" content="Shuka — a modern marketplace connecting local farms to kitchens and small businesses." />
-  <!-- Fonts: Inter for UI, DM Serif Display for wordmark -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root{
-      /* Light, FAIRE-like theme with green accent */
-      --bg:#ffffff;
-      --surface:#ffffff;
-      --card:#ffffff;
-      --border:#e5e7eb; /* slate-200 */
-      --muted:#64748b;  /* slate-500 */
-      --text:#0f172a;   /* slate-900 */
-      --accent:#16a34a; /* green-600 */
-      --accent-weak:#d1fae5; /* green-50 */
+      --bg:#ffffff; --surface:#ffffff; --card:#ffffff; --border:#e5e7eb;
+      --muted:#64748b; --text:#0f172a; --accent:#16a34a; --accent-weak:#d1fae5;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{
-      margin:0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial;
-      color:var(--text);
-      background:var(--bg);
-      line-height:1.5;
-    }
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica Neue,Arial;color:var(--text);background:var(--bg);line-height:1.5}
     a{color:inherit;text-decoration:none}
     .container{max-width:1120px;margin:0 auto;padding:0 20px}
 
@@ -36,7 +22,7 @@
     .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .brand{display:flex;align-items:center;gap:12px}
     .wordmark{display:inline-flex;flex-direction:column;align-items:flex-start;line-height:1}
-    .wordmark span{font-family:"DM Serif Display", serif; font-size:22px; letter-spacing:1px; font-weight:400}
+    .wordmark span{font-family:"DM Serif Display",serif;font-size:22px;letter-spacing:1px}
     .wordmark i{display:block;height:3px;width:58px;background:var(--accent);border-radius:2px;margin-top:6px}
     .nav-links{display:flex;gap:18px}
     .nav-links a{color:#111827;font-weight:600}
@@ -44,14 +30,14 @@
     .cta{background:var(--accent);color:#ffffff;padding:10px 14px;border-radius:10px;font-weight:700}
 
     /* Hero */
-    .hero{padding:72px 0 40px}
+    .hero{padding:72px 0 16px}
     .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
     .kicker{display:inline-flex;gap:8px;align-items:center;color:var(--muted);font-size:14px;margin-bottom:12px}
     .kicker .dot{width:6px;height:6px;border-radius:999px;background:var(--accent)}
-    .hero h2{font-family:"DM Serif Display", serif; font-size:56px;line-height:1.05;margin:0 0 12px}
+    .hero h2{font-family:"DM Serif Display",serif;font-size:56px;line-height:1.05;margin:0 0 12px}
     .hero p{color:#334155;font-size:18px;margin:0 0 22px;max-width:46ch}
     .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid var(--border);background:#ffffff}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid var(--border);background:#ffffff;cursor:pointer}
     .btn.primary{background:var(--accent);color:#ffffff;border-color:var(--accent)}
     .btn:hover{transform:translateY(-1px)}
 
@@ -87,11 +73,7 @@
   <nav class="nav">
     <div class="container nav-inner">
       <div class="brand">
-        <!-- Wordmark logo: FAIRE-style serif with green underline -->
-        <div class="wordmark" aria-label="Shuka">
-          <span>SHUKA</span>
-          <i></i>
-        </div>
+        <div class="wordmark" aria-label="Shuka"><span>SHUKA</span><i></i></div>
       </div>
       <div class="nav-links">
         <a href="#products">Products</a>
@@ -125,6 +107,17 @@
         </div>
       </div>
     </div>
+
+    <!-- Featured Farm banner -->
+    <div class="container" style="margin-top:12px">
+      <div class="card">
+        <div class="card-body" style="display:flex;flex-wrap:wrap;align-items:center;gap:10px">
+          <span class="tag">Featured Farm</span>
+          <div>These products are sourced this week from <strong>Ald & Y Organic Farm</strong>.</div>
+          <a href="farm.html" class="btn" style="margin-left:auto">Meet the Farm →</a>
+        </div>
+      </div>
+    </div>
   </header>
 
   <!-- PRODUCTS -->
@@ -154,6 +147,7 @@
               <thead>
                 <tr>
                   <th>Product</th>
+                  <th>Supplier</th>
                   <th>Unit</th>
                   <th>Price</th>
                   <th>Notes</th>
@@ -212,24 +206,23 @@
   </footer>
 
   <script>
-    // Inbox for inquiries
     const SHUKA_EMAIL = 'shukamarketplace.com@gmail.com';
 
-    // Client catalog
+    // Products with supplier links
     const PRODUCTS = [
-      { name: 'Dried Onions', unit: 'lb', price: 3, notes: '' },
-      { name: 'Broccolini', unit: 'bunch', price: 3, notes: '' },
-      { name: 'Carrots', unit: 'bunch', price: 3, notes: '' },
-      { name: 'Beets', unit: 'bunch', price: 3, notes: '' },
-      { name: 'Baby Pak Choi', unit: 'lb', price: 3, notes: '' },
-      { name: 'Kale', unit: 'bunch', price: 3, notes: '' },
-      { name: 'Rainbow Chard', unit: 'bunch', price: 3, notes: '' },
-      { name: 'Bell Peppers', unit: 'bunch', price: 3, notes: '' },
-      { name: 'Cilantro', unit: 'bunch', price: 2, notes: '' },
-      { name: 'Parsley', unit: 'bunch', price: 2, notes: '' },
-      { name: 'Dill', unit: 'bunch', price: 2, notes: '' },
-      { name: 'Zucchini', unit: 'lb', price: 2, notes: '' },
-      { name: 'Mixed Berries (Strawberry/Raspberry/Blackberry)', unit: 'case', price: 35, notes: 'Variety dependent, $35–$40 per case' },
+      { name: 'Dried Onions', unit: 'lb', price: 3, notes: '', supplier: { name: 'Ald & Y Organic Farm', url: 'farm.html' } },
+      { name: 'Broccolini', unit: 'bunch', price: 3, notes: '', supplier: { name: 'Ald & Y Organic Farm', url: 'farm.html' } },
+      { name: 'Carrots', unit: 'bunch', price: 3, notes: '', supplier: { name: 'Ald & Y Organic Farm', url: 'farm.html' } },
+      { name: 'Beets', unit: 'bunch', price: 3, notes: '', supplier: { name: 'Ald & Y Organic Farm', url: 'farm.html' } },
+      { name: 'Baby Pak Choi', unit: 'lb', price: 3, notes: '', supplier: { name: 'Ald & Y Organic Farm', url: 'farm.html' } },
+      { name: 'Kale', unit: 'bunch', price: 3, notes: '', supplier: { name: 'Ald & Y Organic Farm', url: 'farm.html' } },
+      { name: 'Rainbow Chard', unit: 'bunch', price: 3, notes: '', supplier: { name: 'Ald & Y Organic Farm', url: 'farm.html' } },
+      { name: 'Bell Peppers', unit: 'bunch', price: 3, notes: '', supplier: { name: 'Ald & Y Organic Farm', url: 'farm.html' } },
+      { name: 'Cilantro', unit: 'bunch', price: 2, notes: '', supplier: { name: 'Ald & Y Organic Farm', url: 'farm.html' } },
+      { name: 'Parsley', unit: 'bunch', price: 2, notes: '', supplier: { name: 'Ald & Y Organic Farm', url: 'farm.html' } },
+      { name: 'Dill', unit: 'bunch', price: 2, notes: '', supplier: { name: 'Ald & Y Organic Farm', url: 'farm.html' } },
+      { name: 'Zucchini', unit: 'lb', price: 2, notes: '', supplier: { name: 'Ald & Y Organic Farm', url: 'farm.html' } },
+      { name: 'Mixed Berries (Strawberry/Raspberry/Blackberry)', unit: 'case', price: 35, notes: 'Variety dependent, $35–$40 per case', supplier: { name: 'Ald & Y Organic Farm', url: 'farm.html' } },
     ];
 
     const tbody = document.querySelector('#table tbody');
@@ -241,15 +234,14 @@
       tbody.innerHTML = '';
       rows.forEach(item => {
         const tr = document.createElement('tr');
-        const priceLabel = item.unit === 'case' && item.notes.includes('40') ? `$${item.price}–$40 / ${item.unit}` : `$${item.price} / ${item.unit}`;
+        const priceLabel = item.unit === 'case' && (item.notes||'').includes('40') ? `$${item.price}–$40 / ${item.unit}` : `$${item.price} / ${item.unit}`;
         tr.innerHTML = `
           <td>${item.name}</td>
+          <td>${item.supplier ? `<a href='${item.supplier.url}'>${item.supplier.name}</a>` : ''}</td>
           <td>${item.unit}</td>
           <td class="price">${priceLabel}</td>
           <td>${item.notes||''}</td>
-          <td>
-            <button class="btn" onclick="mailto('${item.name}')">Inquire</button>
-          </td>
+          <td><button class="btn" onclick="mailto('${item.name}')">Inquire</button></td>
         `;
         tbody.appendChild(tr);
       })
@@ -283,7 +275,7 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Inquiry form -> mailto compose
-    document.getElementById('inquiryForm').addEventListener('submit', (e)=>{
+    document.getElementById('inquiryForm')?.addEventListener('submit', (e)=>{
       e.preventDefault();
       const data = Object.fromEntries(new FormData(e.target).entries());
       const subject = encodeURIComponent('New buyer inquiry');
