@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shuka — Modern Local Food Marketplace</title>
+  <meta name="description" content="Shuka — a modern marketplace connecting local farms to kitchens and small businesses." />
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --card:#111218;
+      --muted:#9aa3af;
+      --text:#e5e7eb;
+      --accent:#8b5cf6; /* violet */
+      --accent-2:#22d3ee; /* cyan */
+      --ring:rgba(139,92,246,.3);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text);
+      background:radial-gradient(1200px 800px at 80% -10%, rgba(139,92,246,.12), transparent 50%),
+                 radial-gradient(900px 700px at -10% 20%, rgba(34,211,238,.12), transparent 50%),
+                 var(--bg);
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+
+    /* Nav */
+    .nav{position:sticky;top:0;z-index:20;backdrop-filter: blur(6px); background: rgba(11,12,16,.6); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 0 0 3px rgba(139,92,246,.25)}
+    .brand h1{font-size:18px;margin:0;font-weight:700;letter-spacing:.3px}
+    .nav-links{display:flex;gap:18px}
+    .nav-links a{color:var(--muted)}
+    .nav-links a:hover{color:var(--text)}
+    .cta{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0b0c10;padding:10px 14px;border-radius:10px;font-weight:700}
+
+    /* Hero */
+    .hero{padding:80px 0 40px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
+    .kicker{display:inline-flex;gap:8px;align-items:center;color:var(--muted);font-size:14px;margin-bottom:12px}
+    .kicker .dot{width:6px;height:6px;border-radius:999px;background:var(--accent-2)}
+    .hero h2{font-size:48px;line-height:1.05;margin:0 0 12px}
+    .hero p{color:var(--muted);font-size:18px;margin:0 0 22px}
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02)}
+    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0b0c10;border-color:transparent}
+    .btn:hover{box-shadow:0 0 0 4px var(--ring)}
+
+    /* Cards / Sections */
+    .section{padding:56px 0}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .card-header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid rgba(255,255,255,.06)}
+    .card-body{padding:16px 18px}
+
+    /* Catalog */
+    .catalog-controls{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+    input[type="search"], select{background:#0f1117;border:1px solid rgba(255,255,255,.08);color:var(--text);padding:10px 12px;border-radius:10px;outline:none}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:12px 10px;border-bottom:1px solid rgba(255,255,255,.06);text-align:left}
+    th{font-size:14px;color:var(--muted);font-weight:600}
+    tbody tr:hover{background:rgba(255,255,255,.02)}
+    .price{font-variant-numeric: tabular-nums}
+    .tag{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.35);font-size:12px}
+
+    /* Inquiry */
+    form{display:grid;gap:12px}
+    input, textarea{background:#0f1117;border:1px solid rgba(255,255,255,.08);color:var(--text);padding:12px 14px;border-radius:10px;outline:none}
+    textarea{min-height:120px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width: 860px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Shuka</h1>
+      </div>
+      <div class="nav-links">
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="cta">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="kicker"><span class="dot"></span><span>Local • Fresh • Direct</span></div>
+        <h2>Shuka</h2>
+        <p>A modern marketplace connecting local farms to kitchens and small businesses.</p>
+        <div class="hero-cta">
+          <a href="#products" class="btn primary">Browse Products</a>
+          <a href="#inquiry" class="btn">Send an Inquiry</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header"><strong>This Week's Highlights</strong><span class="tag">Seasonal Picks</span></div>
+        <div class="card-body">
+          <ul style="margin:0 0 6px 18px; padding:0">
+            <li>Broccolini — $3 / bunch</li>
+            <li>Baby Pak Choi — $3 / lb</li>
+            <li>Mixed Berries — $35–$40 / case (variety)</li>
+          </ul>
+          <small style="color:var(--muted)">Pricing subject to availability. Bulk orders welcome.</small>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="section">
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          <strong>Catalog</strong>
+          <div class="catalog-controls">
+            <input id="search" type="search" placeholder="Search products (e.g., kale, berries)" />
+            <select id="unitFilter">
+              <option value="">All units</option>
+              <option value="bunch">Bunch</option>
+              <option value="lb">Pound</option>
+              <option value="case">Case</option>
+            </select>
+            <select id="sort">
+              <option value="name">Sort: Name</option>
+              <option value="priceAsc">Sort: Price (low → high)</option>
+              <option value="priceDesc">Sort: Price (high → low)</option>
+            </select>
+          </div>
+        </div>
+        <div class="card-body">
+          <div style="overflow:auto">
+            <table id="table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Unit</th>
+                  <th>Price</th>
+                  <th>Notes</th>
+                  <th style="width:140px">Action</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INQUIRY -->
+  <section id="inquiry" class="section">
+    <div class="container">
+      <div class="card">
+        <div class="card-header"><strong>Send an Inquiry</strong><span style="color:var(--muted);font-size:14px">We’ll get back within 24 hours</span></div>
+        <div class="card-body">
+          <form id="inquiryForm">
+            <div class="grid-2">
+              <input name="name" placeholder="Your name" required />
+              <input name="business" placeholder="Business (restaurant, store, etc.)" />
+            </div>
+            <div class="grid-2">
+              <input name="email" type="email" placeholder="Email" required />
+              <input name="phone" type="tel" placeholder="Phone (optional)" />
+            </div>
+            <textarea name="message" placeholder="What are you looking to buy? Quantities? Delivery window?" required></textarea>
+            <button class="btn primary" type="submit">Send Inquiry</button>
+            <small style="color:var(--muted);display:block;margin-top:8px">Tip: This opens your email app with a pre-filled message. Replace the email inside the code with your real inbox.</small>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / FOOTER -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="card">
+        <div class="card-header"><strong>About Shuka</strong></div>
+        <div class="card-body">
+          <p>Shuka connects local farms with kitchens and small businesses through a simple, modern marketplace. Starting in California, we help buyers discover fresh produce and help growers move inventory quickly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact" class="section" style="padding-top:0">
+    <div class="container" style="text-align:center;color:var(--muted)">
+      <div style="margin-bottom:8px">Contact: <a href="mailto:shukamarketplace.com@gmail.com">shukamarketplace.com@gmail.com</a> • (555) 555-0137</div>
+      <div style="font-size:12px">© <span id="year"></span> Shuka. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Use this inbox for inquiries
+    const SHUKA_EMAIL = 'shukamarketplace.com@gmail.com';
+
+    // Client catalog
+    const PRODUCTS = [
+      { name: 'Dried Onions', unit: 'lb', price: 3, notes: '' },
+      { name: 'Broccolini', unit: 'bunch', price: 3, notes: '' },
+      { name: 'Carrots', unit: 'bunch', price: 3, notes: '' },
+      { name: 'Beets', unit: 'bunch', price: 3, notes: '' },
+      { name: 'Baby Pak Choi', unit: 'lb', price: 3, notes: '' },
+      { name: 'Kale', unit: 'bunch', price: 3, notes: '' },
+      { name: 'Rainbow Chard', unit: 'bunch', price: 3, notes: '' },
+      { name: 'Bell Peppers', unit: 'bunch', price: 3, notes: '' },
+      { name: 'Cilantro', unit: 'bunch', price: 2, notes: '' },
+      { name: 'Parsley', unit: 'bunch', price: 2, notes: '' },
+      { name: 'Dill', unit: 'bunch', price: 2, notes: '' },
+      { name: 'Zucchini', unit: 'lb', price: 2, notes: '' },
+      { name: 'Mixed Berries (Strawberry/Raspberry/Blackberry)', unit: 'case', price: 35, notes: 'Variety dependent, $35–$40 per case' },
+    ];
+
+    const tbody = document.querySelector('#table tbody');
+    const search = document.getElementById('search');
+    const unitFilter = document.getElementById('unitFilter');
+    const sort = document.getElementById('sort');
+
+    function render(rows){
+      tbody.innerHTML = '';
+      rows.forEach(item => {
+        const tr = document.createElement('tr');
+        const priceLabel = item.unit === 'case' && item.notes.includes('40') ? `$${item.price}–$40 / ${item.unit}` : `$${item.price} / ${item.unit}`;
+        tr.innerHTML = `
+          <td>${item.name}</td>
+          <td>${item.unit}</td>
+          <td class="price">${priceLabel}</td>
+          <td>${item.notes||''}</td>
+          <td>
+            <button class="btn" onclick="mailto('${item.name}')">Inquire</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      })
+    }
+
+    function mailto(product){
+      const subject = encodeURIComponent(`Inquiry about ${product}`);
+      const body = encodeURIComponent(`Hello Shuka,\n\nI’m interested in: ${product}.\nQuantity: ____\nPreferred delivery window: ____\nBusiness: ____\nPhone: ____\n\nThanks!`);
+      window.location.href = `mailto:${SHUKA_EMAIL}?subject=${subject}&body=${body}`;
+    }
+
+    function apply(){
+      let rows = [...PRODUCTS];
+      const q = search.value.trim().toLowerCase();
+      const u = unitFilter.value;
+      if(q){ rows = rows.filter(r => r.name.toLowerCase().includes(q)); }
+      if(u){ rows = rows.filter(r => r.unit === u); }
+      switch(sort.value){
+        case 'priceAsc': rows.sort((a,b)=>a.price-b.price); break;
+        case 'priceDesc': rows.sort((a,b)=>b.price-a.price); break;
+        default: rows.sort((a,b)=>a.name.localeCompare(b.name));
+      }
+      render(rows);
+    }
+
+    search.addEventListener('input', apply);
+    unitFilter.addEventListener('change', apply);
+    sort.addEventListener('change', apply);
+
+    render(PRODUCTS);
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Inquiry form -> mailto compose
+    document.getElementById('inquiryForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      const subject = encodeURIComponent('New buyer inquiry');
+      const body = encodeURIComponent(`Name: ${data.name}\nBusiness: ${data.business||''}\nEmail: ${data.email}\nPhone: ${data.phone||''}\n\nMessage:\n${data.message}`);
+      window.location.href = `mailto:${SHUKA_EMAIL}?subject=${subject}&body=${body}`;
+    })
+  </script>
+</body>
+</html>
