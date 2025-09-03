@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ald & Y Organic Farm — Supplier Profile | Shuka</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#ffffff; --surface:#ffffff; --card:#ffffff; --border:#e5e7eb;
+      --muted:#64748b; --text:#0f172a; --accent:#16a34a; --accent-weak:#d1fae5;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Arial;color:var(--text);background:var(--bg)}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:960px;margin:0 auto;padding:0 20px}
+    .nav{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .wordmark{display:inline-flex;flex-direction:column;line-height:1}
+    .wordmark span{font-family:"DM Serif Display",serif;font-size:22px;letter-spacing:1px}
+    .wordmark i{display:block;height:3px;width:58px;background:var(--accent);border-radius:2px;margin-top:6px}
+    .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);padding:10px 14px;border-radius:10px;background:#fff;cursor:pointer}
+    .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+    .section{padding:56px 0}
+    .hero{padding:48px 0;background:linear-gradient(#ffffff, #f8fafc)}
+    .hero h1{font-family:"DM Serif Display",serif;font-size:44px;margin:8px 0}
+    .sub{color:#475569}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 6px 20px rgba(15,23,42,.06)}
+    .tag{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;background:var(--accent-weak);border:1px solid #bbf7d0;font-size:12px;color:#065f46}
+    h2{font-family:"DM Serif Display",serif;font-size:28px;margin-top:0}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="wordmark"><span>SHUKA</span><i></i></div>
+      <a href="index.html" class="btn">← Back to Marketplace</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <span class="tag">Supplier Profile</span>
+      <h1>Ald & Y Organic Farm</h1>
+      <p class="sub">Certified Organic produce grown with care in Salinas, California</p>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container grid">
+      <div>
+        <div class="card">
+          <h2>About the Farm</h2>
+          <p><strong>Owner & Founder:</strong> Guillermo Lázaro, originally from Oaxaca, Mexico. He now resides in Salinas, California, where — with the support of a team of local farmers — they maintain and care for 11 acres of land for organic agricultural products.</p>
+          <p>At Ald & Y Organic Farm, they grow and harvest a wide variety of agricultural and organic products such as lettuce, cabbage, carrots, chili peppers, tomatillos, two types of kale, sweet strawberries, cilantro, and onions, among other fruits and vegetables.</p>
+          <p>The farm is certified organic by the <strong>California Certified Organic Farmers (CCOF)</strong>, ensuring agricultural practices meet the highest standards for selling organic fruits and vegetables.</p>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <h2>Quick Facts</h2>
+          <ul>
+            <li><strong>Location:</strong> Salinas, California</li>
+            <li><strong>Size:</strong> 11 acres</li>
+            <li><strong>Practices:</strong> Certified Organic, sustainable farming</li>
+            <li><strong>Products:</strong> Lettuce, cabbage, carrots, chili peppers, tomatillos, kale, strawberries, cilantro, onion</li>
+            <li><strong>Certification:</strong> CCOF Organic</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INQUIRY -->
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <h2>Connect with Ald & Y Organic Farm</h2>
+        <p>If you’re interested in purchasing directly from this farm, send an inquiry and the Shuka team will connect you.</p>
+        <form id="farmInquiry">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <input name="name" placeholder="Your name" required />
+            <input name="business" placeholder="Business (restaurant, store, etc.)" />
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+            <input name="email" type="email" placeholder="Email" required />
+            <input name="phone" type="tel" placeholder="Phone (optional)" />
+          </div>
+          <textarea name="message" placeholder="What are you looking to buy? Quantities? Delivery window?" style="margin-top:12px;min-height:120px" required></textarea>
+          <button class="btn primary" type="submit" style="margin-top:10px">Send Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="section" style="padding-top:0">
+    <div class="container" style="text-align:center;color:#64748b">
+      <div style="margin-bottom:8px">Contact Shuka: <a href="mailto:shukamarketplace.com@gmail.com">shukamarketplace.com@gmail.com</a></div>
+      <div style="font-size:12px">© <span id="year"></span> Shuka. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const SHUKA_EMAIL = 'shukamarketplace.com@gmail.com';
+    document.getElementById('farmInquiry').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      const subject = encodeURIComponent('Farm Inquiry — Ald & Y Organic Farm');
+      const body = encodeURIComponent(`Name: ${data.name}\nBusiness: ${data.business||''}\nEmail: ${data.email}\nPhone: ${data.phone||''}\n\nMessage:\n${data.message}`);
+      window.location.href = `mailto:${SHUKA_EMAIL}?subject=${subject}&body=${body}`;
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
